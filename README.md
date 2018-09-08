@@ -19,4 +19,5 @@ You can use trams-revenue through any language by calling the REST interface whi
 * production - This profile uses Eureka for service discovery and can be configured to use a database.
 
 **Disclaimer**
+
 Please note that the microservice only contains a dummy implementation for credit card processing and nothing will be charged from any credit card entered. In addition, data is only stored on the computer where this microservice is used and whoever uses this microservice is responsible for ensuring that this data processing occurs within the laws of the country where the microservice is being used.
