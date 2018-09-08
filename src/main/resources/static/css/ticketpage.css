@@ -1,0 +1,61 @@
+#typeArea {
+     float:left;
+     background-color:WhiteSmoke;
+ }
+
+ #typeArea .label {
+     font-family:sans-serif;
+     font-size:20px;
+     font-weight:bold;
+ }
+
+ #typeArea .field {
+     font-family:sans-serif;
+     font-size:20px;
+     width:400px;
+ }
+
+ #typeArea .button {
+     font-family:sans-serif;
+     font-size:20px;
+     background-color:DarkGrey;
+     color:White;
+ }
+
+ #priceArea {
+    border-style: solid;
+    background-color:WhiteSmoke;
+ }
+
+ #priceArea .label {
+     font-family:sans-serif;
+     font-size:20px;
+     font-weight:bold;
+ }
+
+ #priceArea .field {
+     font-family:sans-serif;
+     font-size:20px;
+     width:400px;
+ }
+
+ #priceArea .button {
+     font-family:sans-serif;
+     font-size:20px;
+     background-color:DarkGrey;
+     color:White;
+ }
+
+ #exportArea {
+      position: fixed;
+      Width: 100%;
+      bottom: 0;
+      background-color:WhiteSmoke;
+ }
+
+ #exportArea .button {
+     font-family:sans-serif;
+     font-size:20px;
+     background-color:DarkGrey;
+     color:White;
+ }

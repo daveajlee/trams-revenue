@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <!-- Define title and css files -->
+    <meta charset="UTF-8">
+    <title>TraMS Revenue Management System</title>
+    <link rel="stylesheet" href="../css/welcomepage.css"/>
+    <link rel="stylesheet" href="../css/ticketpage.css"/>
+</head>
+<body>
+    <!-- Define header consisting of logo and title -->
+    <div id="header" class="header">
+        <p><img src="../images/trams-logo.png" width="83px" height="51px"/></p>
+        <h1 style="font-family:sans-serif;"><span wicket:id="title"></span></h1>
+    </div>
+
+    <h3 style="font-family:sans-serif;"><span style="float:right;"><span wicket:id="userOperator"/> (<a href="/logout">Logout</a>)</span></h3>
+    <!-- End Header -->
+
+    <h2 style="font-family:sans-serif;"><span wicket:id="pageTitle"></span></h2>
+
+    <!-- Begin ticket type area with form -->
+    <div id="typeArea" class="typeArea">
+        <form wicket:id="typeForm">
+            <table>
+                <tr>
+                    <!-- Id for this ticket type -->
+                    <td><p class="label"><label wicket:id="shortIdLabel"></label></p></td>
+                    <td><p><input class="field" wicket:id="shortIdField" id="shortIdField" type="text"/></p></td>
+                </tr>
+                <tr>
+                    <!-- Name for this ticket type -->
+                    <td><p class="label"><label wicket:id="typeLabel"/></p></td>
+                    <td><p><input class="field" wicket:id="typeField" id="typeField" type="text"/></p></td>
+                </tr>
+                <tr>
+                    <!-- Description for this ticket type -->
+                    <td><p class="label"><label wicket:id="descriptionLabel"/></p></td>
+                    <td><p><textarea class="field" wicket:id="descriptionArea" id="descriptionArea" type="text"/></p></td>
+                </tr>
+                <tr>
+                    <!-- Display position for this ticket type -->
+                    <td><p class="label"><label wicket:id="displayPositionLabel"/></p></td>
+                    <td><p><input class="field" wicket:id="displayPositionField" id="displayPositionField" type="number"/></p></td>
+                </tr>
+            </table>
+
+            <!-- Begin price area -->
+            <div id="priceArea" class="priceArea">
+                <h3 style="font-family:sans-serif;">Fare Structure:</h3>
+                <form wicket:id="priceForm">
+                    <table>
+                        <tr>
+                            <!-- Choose category for price e.g. adult -->
+                            <td><p class="label"><label wicket:id="categoryLabel"></label></p></td>
+                            <td><p><select class="field" wicket:id="categorySelect"></select></p></td>
+                        </tr>
+                        <tr>
+                            <!-- Enter price -->
+                            <td><p class="label"><label wicket:id="priceLabel"/></p></td>
+                            <td><p><input class="field" wicket:id="priceField" id="priceField" type="number"/></p></td>
+                        </tr>
+                    </table>
+                    <!-- Submit button to add category and price to existing list -->
+                    <input type="submit" wicket:id="addPriceButton" class="button" value="Add Price" />
+
+                    <input type="submit" wicket:id="clearPricesButton" class="button" value="Clear Price(s)" />
+                </form>
+
+                <div style="padding-top:20px;"></div>
+
+                <!-- Show list of existing prices and categories -->
+                <table style="border-collapse: collapse; border: 1px solid black;width:80%;margin-left:10%;">
+                    <tr>
+                        <th style="border: 1px solid black;font-family:sans-serif;font-size:20px;font-weight:bold;width:40%;">Category</th>
+                        <th style="border: 1px solid black;font-family:sans-serif;font-size:20px;font-weight:bold;width:40%;">Price</th>
+                    </tr>
+                    <tr wicket:id="categoryPriceList">
+                        <td style="border: 1px solid black;font-family:sans-serif;font-size:20px;text-align:center;" wicket:id="category"></td>
+                        <td style="border: 1px solid black;font-family:sans-serif;font-size:20px;text-align:center;" wicket:id="price"></td>
+                    </tr>
+                </table>
+
+                <div style="padding-top:20px;"></div>
+
+            </div>
+            <!-- End price area -->
+
+            <div style="padding-top:20px;"></div>
+
+            <!-- Button to add ticket to existing ticket types -->
+            <input type="submit" wicket:id="addTicketButton" class="button" value="Add Ticket Type" />
+
+        </form>
+
+        <div style="padding-top:20px;"></div>
+
+        <!-- Show list of existing ticket types -->
+        <table style="border-collapse: collapse; border: 1px solid black;width:80%;margin-left:10%;">
+            <tr>
+                <th style="border: 1px solid black;font-family:sans-serif;font-size:20px;font-weight:bold;width:40%;">Short Id</th>
+                <th style="border: 1px solid black;font-family:sans-serif;font-size:20px;font-weight:bold;width:40%;">Type</th>
+            </tr>
+            <tr wicket:id="ticketList">
+                <td style="border: 1px solid black;font-family:sans-serif;font-size:20px;text-align:center;" wicket:id="shortId"></td>
+                <td style="border: 1px solid black;font-family:sans-serif;font-size:20px;text-align:center;" wicket:id="type"></td>
+            </tr>
+        </table>
+
+    </div>
+    <!-- End ticket type area -->
+
+    <!-- Begin Export Area containing a submit button to export JSON or clear all data -->
+    <div id="exportArea">
+        <form wicket:id="exportForm">
+            <input type="submit" wicket:id="exportJSONButton" value="Export JSON" style="font-family:sans-serif;font-size:20px;background-color:DarkGrey;color:White;" />
+            <input type="submit" wicket:id="resetButton" value="Clear Tickets" style="font-family:sans-serif;font-size:20px;background-color:DarkGrey;color:White;" />
+        </form>
+    </div>
+    <!-- End Export Area -->
+
+    <div style="padding-top:20px;"></div>
+
+</body>
+</html>
