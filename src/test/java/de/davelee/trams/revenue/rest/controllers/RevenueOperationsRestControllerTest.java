@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -54,7 +55,7 @@ public class RevenueOperationsRestControllerTest {
     public void testAvailableTickets() {
         String jsonText="{\"companyName\":\"Test-company\",\"ticketHashMap\":{\"single\":{\"type\":\"Single Trip\",\"description\":\"1 hour travel on the network.\",\"priceList\":{\"concession\":0.75,\"student\":1.00,\"adult\":1.50}}}}";
         try {
-            mockMvc.perform(post("/revenue/availableTickets").contentType(MediaType.APPLICATION_JSON).content(jsonText)).andExpect(status().isOk());
+            assertNotNull(mockMvc.perform(post("/revenue/availableTickets").contentType(MediaType.APPLICATION_JSON).content(jsonText)).andExpect(status().isOk()));
             mockMvc.perform(get("/revenue/availableTickets?companyName=Test-company")).andExpect(status().isOk());
             mockMvc.perform(get("/revenue/availableTickets?companyName=My-Test-company")).andExpect(status().isNoContent());
             mockMvc.perform(post("/revenue/calculatePrice").contentType(MediaType.APPLICATION_JSON).content(asJsonString(testCalculatePriceRequest()))).andExpect(status().isOk());

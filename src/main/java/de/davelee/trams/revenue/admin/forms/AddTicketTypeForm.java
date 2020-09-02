@@ -4,14 +4,15 @@ import de.davelee.trams.revenue.admin.CategoryPrice;
 import de.davelee.trams.revenue.admin.pages.RevenueTicketsAndPricesPage;
 import de.davelee.trams.revenue.api.Ticket;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.form.*;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.NumberTextField;
+import org.apache.wicket.markup.html.form.TextArea;
+import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
-import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -29,13 +30,6 @@ public class AddTicketTypeForm<T> extends Form<T> {
     private TextArea<String> descriptionArea;
     private NumberTextField<Integer> displayPositionField;
 
-    private List<Ticket> ticketList;
-    private List<CategoryPrice> categoryPrices;
-
-    private AddPriceForm addPriceForm;
-
-    private static Logger logger = LoggerFactory.getLogger(AddTicketTypeForm.class);
-
     /**
      * Create a new Add Ticket Type Form by supplying an id and an existing list of ticket types which can be empty.
      * @param name a <code>String</code> containing the name to use as the wicket id.
@@ -47,9 +41,6 @@ public class AddTicketTypeForm<T> extends Form<T> {
     public AddTicketTypeForm (final String name, final List<Ticket> ticketList, final List<CategoryPrice> categoryPriceList) {
 
         super(name);
-
-        this.ticketList = ticketList;
-        this.categoryPrices = categoryPriceList;
 
         add(new Label("shortIdLabel", "Short Id:"));
 
@@ -72,8 +63,7 @@ public class AddTicketTypeForm<T> extends Form<T> {
         displayPositionField.setMinimum(0);
         add(displayPositionField.setRequired(true));
 
-        addPriceForm = new AddPriceForm("priceForm", categoryPriceList);
-        add(addPriceForm);
+        add(new AddPriceForm("priceForm", categoryPriceList));
 
         add(new ListView<CategoryPrice>("categoryPriceList", new PropertyModel<>(this, "categoryPrices")) {
 

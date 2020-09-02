@@ -59,7 +59,7 @@ public class TicketServiceTest {
         ticket.setDescription("Valid for 1 hour");
         ticket.setType("Single Ticket");
         HashMap<String, BigDecimal> priceList = new HashMap<>();
-        priceList.put("adult", new BigDecimal(0.80));
+        priceList.put("adult", new BigDecimal("0.80"));
         ticket.setPriceList(priceList);
         return ticket;
     }

@@ -8,8 +8,6 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.NumberTextField;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -21,8 +19,6 @@ import java.util.List;
  * @author Dave Lee
  */
 public class AddPriceForm<T> extends Form<T> {
-
-    private static Logger logger = LoggerFactory.getLogger(AddPriceForm.class);
 
     private List categories = Arrays.asList(new String[] { "adult", "student", "concession"});
     private String selectedOperator = "adult";

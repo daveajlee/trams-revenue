@@ -15,6 +15,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TramsRevenueServerApplication.class)
 @EnableWebSecurity
@@ -53,7 +55,7 @@ public class RevenueLoginPageTest {
      * Expected result: all asserts are fulfilled.
      */
     public void testLogin() {
-        login(USERNAME, PASSWORD);
+        assertTrue(login(USERNAME, PASSWORD));
     }
 
     /**
@@ -61,7 +63,8 @@ public class RevenueLoginPageTest {
      * @param username a <code>String</code> containing the username to use in the test.
      * @param password a <code>String</code> containing the password to use in the test.
      */
-    private void login(final String username, final String password) {
+    private boolean login(final String username, final String password) {
+        assertNotNull(tester);
         SecureWebSession session = (SecureWebSession) tester.getSession();
         session.signOut();
         tester.startPage(RevenueLoginPage.class);
@@ -72,6 +75,7 @@ public class RevenueLoginPageTest {
         tester.assertNoErrorMessage();
         tester.assertNoInfoMessage();
         tester.assertRenderedPage(RevenueTicketsAndPricesPage.class);
+        return true;
     }
 
 }

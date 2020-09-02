@@ -3,12 +3,14 @@ package de.davelee.trams.revenue.admin.forms;
 import de.davelee.trams.revenue.admin.pages.RevenueTicketsAndPricesPage;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.form.*;
+import org.apache.wicket.markup.html.form.DropDownChoice;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.PasswordTextField;
+import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,8 +28,6 @@ public class LoginForm<T> extends Form<T> {
     private DropDownChoice<String> operatorSelect;
     private TextField<String> usernameField;
     private TextField<String> passwordField;
-
-    private static Logger logger = LoggerFactory.getLogger(LoginForm.class);
 
     /**
      * Create a new login form by specifying a wicket id.
