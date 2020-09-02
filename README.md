@@ -1,4 +1,7 @@
 # trams-revenue
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a17b1a1340bc4a7da3226c10425fab6a)](https://app.codacy.com/manual/dave_33/trams-revenue?utm_source=github.com&utm_medium=referral&utm_content=daveajlee/trams-revenue&utm_campaign=Badge_Grade_Dashboard)
+
 This microservice for the TraMS platform manages revenue operations through REST and allows export of information as JSON through a web client.
 
 ##How to use
