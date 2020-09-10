@@ -29,6 +29,7 @@ public class AddTicketTypeForm<T> extends Form<T> {
     private TextField<String> typeField;
     private TextArea<String> descriptionArea;
     private NumberTextField<Integer> displayPositionField;
+    private List<CategoryPrice> categoryPrices;
 
     /**
      * Create a new Add Ticket Type Form by supplying an id and an existing list of ticket types which can be empty.
@@ -41,6 +42,7 @@ public class AddTicketTypeForm<T> extends Form<T> {
     public AddTicketTypeForm (final String name, final List<Ticket> ticketList, final List<CategoryPrice> categoryPriceList) {
 
         super(name);
+        this.categoryPrices = categoryPriceList;
 
         add(new Label("shortIdLabel", "Short Id:"));
 
