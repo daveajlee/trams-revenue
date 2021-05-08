@@ -16,7 +16,7 @@
 	</parent>
 
 	<properties>
-		<wicket.version>8.0.0</wicket.version>
+		<wicket.version>8.9.0</wicket.version>
 		<java.version>11</java.version>
 	</properties>
 
